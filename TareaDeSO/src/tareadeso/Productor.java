@@ -33,9 +33,9 @@ public class Productor extends Thread {
             try {
                 valor = numeros[(int)(Math.random()* 75+0)];
                 controlador.producir(valor);
-                System.out.println("Numero "+ valor +" producido");
+                System.out.println("**Numero "+ valor +" producido**");
 
-                sleep((int) (Math.random() * 3000));
+                sleep((int) (Math.random() * 1000));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
             }

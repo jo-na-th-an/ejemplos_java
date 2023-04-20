@@ -22,7 +22,6 @@ public class Consumidor extends Thread {
             try {
                 int valor =  this.controlador.consumir();
                 System.out.println("Numero "+valor+" consumido");
-                //controlador.produci(valor);
                 sleep((int) (Math.random() * 3000));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
