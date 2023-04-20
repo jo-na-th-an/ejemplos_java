@@ -9,18 +9,22 @@ public class Controlador {
     private int siguiente;
     private boolean vacido;
     private boolean lleno;
-    
+    public int w;
     
     public Controlador(int tamaño){
+        w=tamaño;
         this.numeros = new int[tamaño];
         this.siguiente = 0;
         this.vacido = true;
         this.lleno = false;
         
     }
-
+    
+   
+    
     public synchronized int consumir(){
     
+        int r=0;
         while(this.vacido){
             try {
                 wait();
@@ -38,6 +42,7 @@ public class Controlador {
         
         notifyAll();
 
+       r++;
         return this.numeros[this.siguiente];
     }
     
@@ -59,6 +64,7 @@ public class Controlador {
             
             this.lleno=true;                      
         }
+        
         notifyAll();
         
     }

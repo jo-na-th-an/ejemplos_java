@@ -16,11 +16,13 @@ public class Consumidor extends Thread {
     
     public void run(){
     
+        
+        int p=0;
         while(true){
             try {
                 int valor =  this.controlador.consumir();
                 System.out.println("Numero "+valor+" consumido");
-                
+                //controlador.produci(valor);
                 sleep((int) (Math.random() * 3000));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);

@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 public class Productor extends Thread {
     
     private Controlador controlador;
-    private final int[] numeros =new int [75]; 
+    private final int[] numeros = new int [75]; 
     
     public Productor(Controlador x){
         
@@ -14,12 +14,24 @@ public class Productor extends Thread {
      
     }
     
+     public void LlenarCarton(int tamaño){
+        
+        
+        for(int i=0; i<tamaño;i++){
+        
+            numeros[i]=i;
+            //System.out.println("llenando vector: "+numeros[i]);
+        }
+
+    }
+    
     public void run(){
     
+        int valor = 0;
         while(true){
 
             try {
-                int valor = numeros[(int)(Math.random() * 75+0)];
+                valor = numeros[(int)(Math.random()* 75+0)];
                 controlador.producir(valor);
                 System.out.println("Numero "+ valor +" producido");
 
